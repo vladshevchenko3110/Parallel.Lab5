@@ -1,0 +1,128 @@
+﻿<Window x:Class="TaskParallel1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskParallel1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}" x:Key="StyleTextBox">
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+
+        </Style>
+        <Style TargetType="{x:Type ListBox}" x:Key="StyleListBox">
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="Height" Value="150"/>
+            <Setter Property="Width" Value="350"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WhiteTextBlock">
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}" x:Key="WhiteTextBlock1">
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="StyleButton">
+            <Setter Property="FontFamily" Value="Arial Black"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Indigo">
+        <TextBlock Style="{StaticResource WhiteTextBlock1}" HorizontalAlignment="Left" Margin="31,103,0,0" TextWrapping="Wrap" Text="Sequential processing" VerticalAlignment="Top"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock1}" HorizontalAlignment="Left" Margin="31,323,0,0" TextWrapping="Wrap" Text="Parallel processing" VerticalAlignment="Top"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="42,72,0,0" TextWrapping="Wrap" Text="Number of all elements:" VerticalAlignment="Top"/>
+        <TextBox Style="{StaticResource StyleTextBox}" Name="InfoTextBox" HorizontalAlignment="Left" Margin="242,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="16"/>
+        <Button Style="{StaticResource StyleButton}"  Name="StartButton" Content="Start" HorizontalAlignment="Center" Margin="0,31,0,0" VerticalAlignment="Top" Height="23" Width="75" Click="StartButton_Click"/>
+        <ListBox Name="ConfirmedList1" Style="{StaticResource StyleListBox}"  Margin="31,152,819,282">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3" Text="{Binding ProductId}" />
+                        <TextBlock Margin="3" Text="{Binding CreateDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding FinishDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding OrderStatus}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="RejectedList1" Style="{StaticResource StyleListBox}" Margin="416,152,434,282">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3" Text="{Binding ProductId}" />
+                        <TextBlock Margin="3" Text="{Binding CreateDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding FinishDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding OrderStatus}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="RecentList1" Style="{StaticResource StyleListBox}" Margin="812,152,38,282" RenderTransformOrigin="0.753,0.47">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3" Text="{Binding ProductId}" />
+                        <TextBlock Margin="3" Text="{Binding CreateDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding FinishDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding OrderStatus}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="ConfirmedList2" Style="{StaticResource StyleListBox}" Margin="31,389,819,45">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3" Text="{Binding ProductId}" />
+                        <TextBlock Margin="3" Text="{Binding CreateDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding FinishDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding OrderStatus}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="RejectedList2" Style="{StaticResource StyleListBox}" Margin="425,389,425,45">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3" Text="{Binding ProductId}" />
+                        <TextBlock Margin="3" Text="{Binding CreateDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding FinishDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding OrderStatus}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Name="RecentList2" Style="{StaticResource StyleListBox}" Margin="812,389,38,45">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="3" Text="{Binding ProductId}" />
+                        <TextBlock Margin="3" Text="{Binding CreateDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding FinishDateTime}" />
+                        <TextBlock Margin="3" Text="{Binding OrderStatus}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="166,129,0,0" TextWrapping="Wrap" Text="Confirmed" VerticalAlignment="Top" RenderTransformOrigin="0.477,-0.109"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="166,368,0,0" TextWrapping="Wrap" Text="Confirmed" VerticalAlignment="Top"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="557,129,0,0" TextWrapping="Wrap" Text="Rejected" VerticalAlignment="Top" RenderTransformOrigin="1.153,0.35"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="562,368,0,0" TextWrapping="Wrap" Text="Rejected" VerticalAlignment="Top"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="960,129,0,0" TextWrapping="Wrap" Text="Recent" VerticalAlignment="Top"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="960,363,0,0" TextWrapping="Wrap" Text="Recent" VerticalAlignment="Top" RenderTransformOrigin="0.462,1.021"/>
+        <TextBox Style="{StaticResource StyleTextBox}" x:Name="ResultTextBox1" HorizontalAlignment="Left" Margin="336,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox Style="{StaticResource StyleTextBox}" x:Name="ResultTextBox2" HorizontalAlignment="Left" Margin="336,333,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="281,333,0,0" TextWrapping="Wrap" Text="Time:" VerticalAlignment="Top" RenderTransformOrigin="1.099,1.891"/>
+        <TextBlock Style="{StaticResource WhiteTextBlock}" HorizontalAlignment="Left" Margin="281,106,0,0" TextWrapping="Wrap" Text="Time:" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
